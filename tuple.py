@@ -6,6 +6,7 @@ l[3] = 40
 l
 [1,2,3,40]
 l.append(5)
+l.remove(3)
 l[-1]
 l[1:3]
 [2,3]
@@ -202,10 +203,17 @@ while True:
   except ValueError as err:
     print('Encountered error:{}'.format(err))
     break
+  # 捕获所有类型的错误
   except Exception as err:
     print('Exception')
   finally:
     print('最终都会执行')
+
+try: 
+  # 自定义错误
+  raise NameError('hello')
+except NameError:
+  print('custom error')
 # 错误类型：ZeroDivisionError NameError TypeError KeyError FileNotFountError IndexError JSONDecodeError
 # Exception 是其他所以非系统异常的基类，能够匹配任意非系统异常
 
